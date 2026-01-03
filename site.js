@@ -83,7 +83,108 @@ function initSitePage() {
   }
 
 
+/* ---------- Timeline ---------- */
+
+site.timeline = site.timeline || {
+  liveDate: "",
+  impressions500Date: ""
+};
+
+const siteLiveInput = document.getElementById("site-live-date");
+const impressionsInput = document.getElementById("impressions-500-date");
+
+if (siteLiveInput) {
+  siteLiveInput.value = site.timeline.liveDate;
+
+  siteLiveInput.addEventListener("input", () => {
+    site.timeline.liveDate = siteLiveInput.value;
+    saveSites(sites);
+  });
 }
+
+if (impressionsInput) {
+  impressionsInput.value = site.timeline.impressions500Date;
+
+  impressionsInput.addEventListener("input", () => {
+    site.timeline.impressions500Date = impressionsInput.value;
+    saveSites(sites);
+  });
+}
+
+
+
+
+
+
+/* ---------- Monetisation ---------- */
+
+site.monetisation = site.monetisation || {
+  rentedTo: "",
+  partnerDomain: "",
+  rentedDate: "",
+  rentedStatus: "No"
+};
+
+const rentedToInput = document.getElementById("rented-to");
+const partnerDomainInput = document.getElementById("partner-domain");
+const rentedDateInput = document.getElementById("rented-date");
+const rentedStatusSelect = document.getElementById("rented-status");
+
+if (rentedToInput) {
+  rentedToInput.value = site.monetisation.rentedTo;
+  rentedToInput.addEventListener("input", () => {
+    site.monetisation.rentedTo = rentedToInput.value;
+    saveSites(sites);
+  });
+}
+
+if (partnerDomainInput) {
+  partnerDomainInput.value = site.monetisation.partnerDomain;
+  partnerDomainInput.addEventListener("input", () => {
+    site.monetisation.partnerDomain = partnerDomainInput.value;
+    saveSites(sites);
+  });
+}
+
+if (rentedDateInput) {
+  rentedDateInput.value = site.monetisation.rentedDate;
+  rentedDateInput.addEventListener("input", () => {
+    site.monetisation.rentedDate = rentedDateInput.value;
+    saveSites(sites);
+  });
+}
+
+if (rentedStatusSelect) {
+  rentedStatusSelect.value = site.monetisation.rentedStatus;
+  rentedStatusSelect.addEventListener("change", () => {
+    site.monetisation.rentedStatus = rentedStatusSelect.value;
+    saveSites(sites);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// important bracket lol
+}
+
+
+
 
 /* ---------- Init ---------- */
 
