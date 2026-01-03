@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iron Local — Operator Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="h1-head">
+    <h1>Iron Local</h1>
+    <p class="system-tagline">
+      UI priority: Bird’s-eye clarity first → site-level depth second → SOP reference last.
+    </p>
+  </div>
+
+  <div class="h2-head">
+    <h2>Bird’s-Eye Portfolio Overview</h2>
+  </div>
+
+  <!-- LAYOUT WRAPPER -->
+  <div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar-navigation">
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="site.html">Individual Site View</a></li>
+        <li><a href="seo.html">SEO</a></li>
+        <li><a href="site-build.html">Site Build</a></li>
+        <li><a href="content-vault.html">Content Vault</a></li>
+        <li><a href="contractors.html">Contractors</a></li>
+        <li><a href="rented-sites.html">Rented Sites</a></li>
+        <li><a href="philosophies.html">Philosophies</a></li>
+        <li><a href="full-sop.html">Full SOP</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- METRICS -->
+      <section class="overview-metrics">
+        <div class="metric-card">
+          <p class="metric-label">Sites Live</p>
+          <p class="metric-value">22</p>
+        </div>
+
+        <div class="metric-card">
+          <p class="metric-label">Sites Rented</p>
+          <p class="metric-value">18</p>
+        </div>
+      </section>
+
+      <!-- SITE TABLE -->
+      <section class="overview-table">
+        <h3>Active Digital Assets</h3>
+        <!-- SITE SELECTOR (CLICK INTO SITE VIEW) -->
+        <ul id="site-list" class="site-list"></ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>Niche</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Phase</th>
+              <th>GSC</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><a href="site.html">Concrete Bases Watford</a></td>
+              <td>Concrete Bases</td>
+              <td>Watford</td>
+              <td class="status-green">🟢 Greenlight</td>
+              <td>Phase 2 — SEO Seeding</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td>Loft Insulation Luton</td>
+              <td>Loft Insulation</td>
+              <td>Luton</td>
+              <td class="status-red">🔴 Paused</td>
+              <td>Phase 1 — Asset Creation</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- TIMELINE / REMINDERS -->
+      <section class="overview-reminders">
+        <h3>Timeline Anchors & Reminders</h3>
+
+        <ul>
+          <li>📅 Blog day — Concrete sites — 22/04/26</li>
+          <li>📅 Add content to Loft pages — 29/04/26</li>
+        </ul>
+
+        <p class="data-rule">
+          All data is manually input or toggled. No assumptions. No inferred states.
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+
+   <script src="site-seed.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  
+</body>
+</html>

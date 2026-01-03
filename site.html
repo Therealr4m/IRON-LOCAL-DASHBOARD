@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iron Local — Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="h1-head">
+    <h1 id="site-name">Site</h1>
+    <p class="system-tagline" id="site-meta"></p>
+  </div>
+
+  <div class="app-shell">
+
+    <nav class="sidebar-navigation">
+      <ul class="primary-nav">
+        <li><a href="index.html">← Back to My Sites</a></li>
+        <li><a href="contractors.html">Contractors</a></li>
+        <li><a href="seo.html">SEO</a></li>
+        <li><a href="content-vault.html">Content</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-section">
+      <h4>My Sites</h4>
+      <ul id="my-sites-list"></ul>
+    </div>
+
+    <main class="main-content">
+
+      <!-- ================= CORE SITE INFO ================= -->
+      <section>
+        <h3>Core Site Info</h3>
+        <p><strong>Live URL:</strong> <span id="site-url"></span></p>
+        <p><strong>Main Keyword:</strong> <span id="site-keyword"></span></p>
+        <p><strong>Tracking Number:</strong> <span id="site-phone"></span></p>
+        <p><strong>GSC Verified:</strong> <span id="site-gsc"></span></p>
+      </section>
+
+
+
+
+<!--Site pushed date and impressions -->
+
+<section>
+  <h3>Timeline</h3>
+
+  <div class="operator-form">
+    <div class="field-block">
+      <label for="site-live-date">
+        Site was pushed live on
+      </label>
+      <input type="date" id="site-live-date">
+    </div>
+
+    <div class="field-block">
+      <label for="impressions-500-date">
+        Site hit 500 impressions on
+      </label>
+      <input type="date" id="impressions-500-date">
+    </div>
+  </div>
+</section>
+
+<!-- backlinks & blogs -->
+
+<section>
+  <h3>SEO & Authority</h3>
+
+  <div class="operator-form two-col">
+    <div class="field-block">
+      <label for="backlinks">Backlinks</label>
+      <input type="number" id="backlinks">
+    </div>
+
+    <div class="field-block">
+      <label for="blogs">Blogs Published</label>
+      <input type="number" id="blogs">
+    </div>
+  </div>
+</section>
+
+      <!-- ================= MONETISATION ================= -->
+      <section>
+        <h3>Monetisation</h3>
+        <form class="operator-form">
+          <select id="rented-status">
+            <option value="">Rented?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <input type="text" id="rented-to" placeholder="Partner / Contractor name">
+          <input type="text" id="partner-domain" placeholder="Partner domain">
+          <input type="date" id="rented-date">
+        </form>
+      </section>
+
+      <!-- ================= CITATIONS ================= -->
+      <section>
+        <h3>Citations</h3>
+        <div id="citations">
+          <!-- JS will render citation cards here -->
+        </div>
+      </section>
+
+      <!-- ================= DISTRIBUTION ================= -->
+      <section>
+        <h3>Distribution & Local Presence</h3>
+        <form class="operator-form">
+          <input type="text" id="facebook-groups" placeholder="Facebook groups (comma separated)">
+        </form>
+      </section>
+
+      <!-- ================= FRICTION LOG ================= -->
+      <section>
+        <h3>Friction Log</h3>
+        <form class="operator-form">
+          <textarea
+            id="friction-log"
+            rows="5"
+            placeholder="Anything slowing progress, blockers, delays, lessons learned…">
+          </textarea>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="site-seed.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
+
+

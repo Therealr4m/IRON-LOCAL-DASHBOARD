@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iron Local — Contractors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= PAGE HEADER ================= -->
+  <div class="h1-head">
+    <h1>Contractors & Partners</h1>
+    <p class="system-tagline">Track every call, every partner, every note.</p>
+    <p class="ui-priority">
+      UI priority: Bird’s-eye clarity first → site-level depth second → SOP reference last.
+    </p>
+  </div>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+    <nav class="sidebar-navigation">
+      <ul class="primary-nav">
+        <li><a href="index.html">← Back to Overview</a></li>
+        <li><a href="seo.html">SEO</a></li>
+        <li><a href="site-build.html">Site Build</a></li>
+        <li><a href="content-vault.html">Content</a></li>
+      </ul>
+    </nav>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-content">
+
+      <!-- ================= CONTRACTOR CALL LOG ================= -->
+      <section class="competitor-call-log-section">
+        <h3>Contractor Call Log</h3>
+
+        <form id="contractor-form" class="operator-form">
+          <input type="text" id="business" placeholder="Business name" required>
+          <input type="text" id="contactName" placeholder="Contact name">
+          <input type="date" id="dateCalled" required>
+          <input type="text" id="outcome" placeholder="Outcome (Warm / Rejected / Follow-up)">
+          <input type="text" id="notes" placeholder="Notes">
+          <button type="submit">Add Call</button>
+        </form>
+
+        <table class="operator-table">
+          <thead>
+            <tr>
+              <th>Business</th>
+              <th>Contact</th>
+              <th>Date</th>
+              <th>Outcome</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="contractor-log"></tbody>
+        </table>
+
+        <p class="pitch-tip">
+          Recommended pitch:<br>
+          “I’ve got some jobs coming in, but I don’t do insulation — could I pass the first couple to you for free, then we can talk?”
+        </p>
+      </section>
+
+      <!-- ================= PARTNER DATABASE ================= -->
+      <section class="partner-database-section">
+        <h3>Partner Database</h3>
+
+        <form id="partner-form" class="operator-form">
+          <input type="text" id="partner-business" placeholder="Business name" required>
+          <input type="text" id="partner-domain" placeholder="Domain">
+          <input type="text" id="partner-phone" placeholder="Phone">
+          <input type="text" id="partner-contact" placeholder="Contact name">
+          <select id="partner-status">
+            <option value="Potential">Potential</option>
+            <option value="Active">Active</option>
+            <option value="Paused">Paused</option>
+          </select>
+          <input type="text" id="partner-notes" placeholder="Notes">
+          <button type="submit">Add Partner</button>
+        </form>
+
+        <div id="partner-database"></div>
+      </section>
+
+      <!-- ================= OUTREACH LOG ================= -->
+      <section class="monetisation-section">
+        <h3>Contractor Outreach Log</h3>
+
+        <form id="outreach-form" class="operator-form">
+          <input type="text" id="outreach-business" placeholder="Business name">
+          <input type="date" id="outreach-date">
+          <input type="text" id="outreach-notes" placeholder="What happened">
+          <button type="submit">Log Outreach</button>
+        </form>
+
+        <ul id="outreach-log" class="outreach-list"></ul>
+      </section>
+
+    </main>
+  </div>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+
+
