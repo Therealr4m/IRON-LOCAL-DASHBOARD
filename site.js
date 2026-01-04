@@ -112,10 +112,6 @@ if (impressionsInput) {
 }
 
 
-
-
-
-
 /* ---------- Monetisation ---------- */
 
 site.monetisation = site.monetisation || {
@@ -162,11 +158,145 @@ if (rentedStatusSelect) {
   });
 }
 
+/* ---------- Distribution ---------- */
+
+site.distribution = site.distribution || {
+  facebookGroups: ""
+};
+
+const fbGroupsInput = document.getElementById("facebook-groups");
+
+if (fbGroupsInput) {
+  fbGroupsInput.value = site.distribution.facebookGroups;
+
+  fbGroupsInput.addEventListener("input", () => {
+    site.distribution.facebookGroups = fbGroupsInput.value;
+    saveSites(sites);
+  });
+}
 
 
+/* ---------- Friction Log ---------- */
 
+site.friction = site.friction || {
+  notes: ""
+};
 
+const frictionInput = document.getElementById("friction-log");
 
+if (frictionInput) {
+  frictionInput.value = site.friction.notes;
+
+  frictionInput.addEventListener("input", () => {
+    site.friction.notes = frictionInput.value;
+    saveSites(sites);
+  });
+}
+
+/* ---------- Citations ---------- */
+
+site.citations = site.citations || [];
+
+const citationInput = document.getElementById("citation-input");
+const addCitationBtn = document.getElementById("add-citation");
+const citationsContainer = document.getElementById("citations");
+
+function renderCitations() {
+  citationsContainer.innerHTML = "";
+
+  site.citations.forEach((citation, index) => {
+    const card = document.createElement("div");
+    card.className = "outreach-card";
+
+    card.innerHTML = `
+      <strong>${citation.name}</strong>
+
+      <select data-index="${index}">
+        <option value="Not Started" ${citation.status === "Not Started" ? "selected" : ""}>Not Started</option>
+        <option value="Ongoing" ${citation.status === "Ongoing" ? "selected" : ""}>Ongoing</option>
+        <option value="Done" ${citation.status === "Done" ? "selected" : ""}>Done</option>
+      </select>
+
+      <textarea
+        placeholder="Notes"
+        data-notes-index="${index}"
+      >${citation.notes || ""}</textarea>
+
+      <button type="button" data-delete-index="${index}">
+        Remove
+      </button>
+    `;
+
+    citationsContainer.appendChild(card);
+  });
+
+  bindCitationEvents();
+}
+
+function bindCitationEvents() {
+  citationsContainer.querySelectorAll("select").forEach(select => {
+    select.addEventListener("change", e => {
+      const index = e.target.dataset.index;
+      site.citations[index].status = e.target.value;
+      saveSites(sites);
+    });
+  });
+
+  citationsContainer.querySelectorAll("textarea").forEach(textarea => {
+    textarea.addEventListener("input", e => {
+      const index = e.target.dataset.notesIndex;
+      site.citations[index].notes = e.target.value;
+      saveSites(sites);
+    });
+  });
+
+  citationsContainer.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", e => {
+      const index = e.target.dataset.deleteIndex;
+      site.citations.splice(index, 1);
+      saveSites(sites);
+      renderCitations();
+    });
+  });
+}
+
+if (addCitationBtn) {
+  addCitationBtn.addEventListener("click", () => {
+    const name = citationInput.value.trim();
+    if (!name) return;
+
+    site.citations.push({
+      name,
+      status: "Not Started",
+      notes: ""
+    });
+
+    citationInput.value = "";
+    saveSites(sites);
+    renderCitations();
+  });
+}
+
+renderCitations();
+
+/* ---------- Delete Site section ---------- */
+
+const deleteBtn = document.getElementById("delete-site-btn");
+
+if (deleteBtn) {
+  deleteBtn.addEventListener("click", () => {
+    const confirmDelete = confirm(
+      "This will permanently delete this site and all its data. Are you sure?"
+    );
+
+    if (!confirmDelete) return;
+
+    delete sites[siteId];
+    saveSites(sites);
+
+    window.location.href = "index.html";
+  });
+}
 
 
 
@@ -183,10 +313,44 @@ if (rentedStatusSelect) {
 // important bracket lol
 }
 
-
-
-
 /* ---------- Init ---------- */
 
 renderMySitesSidebar();
 initSitePage();
+
+
+
+
+const addSiteLink = document.getElementById("add-site-link");
+
+if (addSiteLink) {
+  addSiteLink.addEventListener("click", e => {
+    e.preventDefault();
+
+    const name = prompt("Site name:");
+    if (!name) return;
+
+    const niche = prompt("Niche:");
+    const location = prompt("Location:");
+    const liveUrl = prompt("Live URL:");
+    const keyword = prompt("Main keyword:");
+
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+    const sites = loadSites();
+
+    sites[id] = {
+      name,
+      niche,
+      location,
+      liveUrl,
+      mainKeyword: keyword,
+      trackingNumber: "",
+      gscVerified: false
+    };
+
+
+    saveSites(sites);
+    location.href = `site.html?siteId=${id}`;
+  });
+}

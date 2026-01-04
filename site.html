@@ -27,6 +27,11 @@
     <div class="sidebar-section">
       <h4>My Sites</h4>
       <ul id="my-sites-list"></ul>
+<!-- added lines to enable multiple sites -->
+     <a href="#" id="add-site-link" class="add-site-link">
+     + Add Site
+      </a>
+
     </div>
 
     <main class="main-content">
@@ -98,13 +103,21 @@
         </form>
       </section>
 
-      <!-- ================= CITATIONS ================= -->
-      <section>
-        <h3>Citations</h3>
-        <div id="citations">
-          <!-- JS will render citation cards here -->
-        </div>
-      </section>
+  <!-- ================= CITATIONS ================= -->
+<section>
+  <h3>Citations</h3>
+
+  <form class="operator-form">
+    <input
+      type="text"
+      id="citation-input"
+      placeholder="Add citation (e.g. Yell, FreeIndex, Cylex)"
+    >
+    <button type="button" id="add-citation">Add Citation</button>
+  </form>
+
+  <div id="citations"></div>
+</section>
 
       <!-- ================= DISTRIBUTION ================= -->
       <section>
@@ -125,6 +138,18 @@
           </textarea>
         </form>
       </section>
+
+
+     <!-- ================= DANGER ZONE ================= -->
+     <section class="danger-zone">
+     <h3>Danger Zone</h3>
+     <button id="delete-site-btn" class="danger-btn">
+      Delete This Site
+     </button>
+     </section>
+
+
+
 
     </main>
   </div>

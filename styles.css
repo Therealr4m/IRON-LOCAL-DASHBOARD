@@ -338,13 +338,6 @@ td a {
   opacity: 0.85;
 }
 
-
-
-
-
-
-
-
 .system-tagline {
   text-align: center;
   color: #d4af37;
@@ -468,9 +461,6 @@ td a {
 .partner-card.potential {
   opacity: 0.85;
 }
-
-
-
 
 /* ======================================================
    IRON LOCAL — QUIET LUXURY UI REFINEMENT
@@ -686,4 +676,417 @@ section {
 .outreach-list {
   list-style: none;
   padding-left: 0;
+}
+
+
+
+/* Latest Updated CSS */
+/* ======================================================
+   IRON LOCAL — ULTRA PREMIUM OPERATOR FINISH
+   CSS ONLY — SAFE OVERRIDES
+   No logic, no structure changes
+====================================================== */
+
+/* ---------- GLOBAL TYPE REFINEMENT ---------- */
+
+body {
+  color: #e4d8a4; /* warmer, calmer gold */
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+/* ---------- HEADER (COMMANDING BUT QUIET) ---------- */
+
+.h1-head {
+  background: linear-gradient(
+    to bottom,
+    #e0c35a,
+    #d4af37
+  );
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.system-tagline {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* ---------- APP SHELL RHYTHM ---------- */
+
+.app-shell {
+  gap: 40px;
+  padding: 0 36px 48px;
+}
+
+.main-content {
+  max-width: 980px;
+}
+
+/* ---------- SIDEBAR — PREMIUM NAV ---------- */
+
+.sidebar-navigation {
+  border-right: 1px solid rgba(212,175,55,0.15);
+}
+
+.primary-nav a {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.primary-nav a:hover {
+  opacity: 1;
+}
+
+/* ---------- MY SITES SIDEBAR BLOCK ---------- */
+
+.sidebar-section {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+}
+
+.sidebar-section h4 {
+  font-size: 0.7rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0.8;
+}
+
+#my-sites-list li {
+  margin-bottom: 8px;
+}
+
+#my-sites-list a {
+  font-size: 0.88rem;
+  opacity: 0.85;
+}
+
+#my-sites-list a:hover {
+  opacity: 1;
+}
+
+.add-site-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.add-site-link:hover {
+  opacity: 1;
+}
+
+/* ---------- SECTION CARDS ---------- */
+
+section {
+  background-color: #111;
+  border: 1px solid rgba(212,175,55,0.14);
+  border-radius: 7px;
+  padding: 26px 28px;
+  margin-bottom: 32px;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* ---------- FIELD BLOCKS ---------- */
+
+.field-block label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+/* ---------- FORMS ---------- */
+
+.operator-form input,
+.operator-form select,
+.operator-form textarea {
+  background-color: #1f1e1e;
+  border: 1px solid rgba(212,175,55,0.22);
+  color: #e4d8a4;
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.operator-form textarea {
+  line-height: 1.6;
+}
+
+.operator-form input:focus,
+.operator-form select:focus,
+.operator-form textarea:focus {
+  border-color: #d4af37;
+  outline: none;
+}
+
+/* ---------- BUTTONS — CONFIDENT, NOT LOUD ---------- */
+
+.operator-form button,
+.operator-btn {
+  background-color: #d4af37;
+  color: #1f1e1e;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 9px 14px;
+}
+
+.operator-form button:hover,
+.operator-btn:hover {
+  background-color: #c2a432;
+}
+
+/* ---------- CITATION CARDS ---------- */
+
+#citations > div {
+  background-color: #1a1919;
+  border: 1px solid rgba(212,175,55,0.18);
+  border-radius: 5px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+/* ---------- FRICTION LOG ---------- */
+
+#friction-log {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ---------- DANGER ZONE — SERIOUS, NOT FLASHY ---------- */
+
+.danger-zone {
+  border: 1px solid rgba(255,80,80,0.35);
+  background-color: #140d0d;
+}
+
+.danger-zone h3 {
+  color: #ff8c8c;
+}
+
+.danger-btn {
+  background-color: #2a0000;
+  color: #ff8c8c;
+  border: 1px solid rgba(255,80,80,0.5);
+}
+
+.danger-btn:hover {
+  background-color: #3a0000;
+}
+
+
+/* ======================================================
+   MY SITES — PRIMARY ASSET EMPHASIS
+   CSS ONLY — SAFE
+====================================================== */
+
+#my-sites-list {
+  margin-top: 6px;
+}
+
+#my-sites-list li {
+  margin-bottom: 10px;
+}
+
+#my-sites-list a {
+  display: block;
+  padding: 10px 12px;
+  background-color: #111;
+  border-left: 3px solid rgba(212,175,55,0.45);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f0e2a8;
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 4px 10px rgba(0,0,0,0.35);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+#my-sites-list a:hover {
+  background-color: #161515;
+  border-left-color: #d4af37;
+  transform: translateX(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 6px 14px rgba(0,0,0,0.5);
+}
+
+/* ===============================
+   SITE BUILD — PROMPT TERMINAL
+================================ */
+
+.validation-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+
+.validation-list li {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background-color: #1a1919;
+  border-left: 3px solid #d4af37;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.prompt-block {
+  margin-top: 22px;
+}
+
+.prompt-block label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #d4af37;
+  letter-spacing: 0.4px;
+}
+
+.prompt-block textarea {
+  width: 100%;
+  background-color: #0f0f0f;
+  color: #e6d9a8;
+  border: 1px solid rgba(212,175,55,0.25);
+  padding: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  resize: vertical;
+  border-radius: 6px;
+}
+
+.prompt-block textarea:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+/* ======================================================
+   FINALISE PROMPT — FINAL TOUCH STAGING PANEL
+====================================================== */
+
+.finalise-panel {
+  position: relative;
+  background-color: #0f0f0f;
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 8px;
+  padding: 26px 28px 28px;
+  margin-bottom: 36px;
+
+  /* subtle elevation */
+  box-shadow:
+    0 10px 26px rgba(0,0,0,0.55),
+    inset 0 0 0 1px rgba(212,175,55,0.08);
+}
+
+/* soft gold emphasis bar — not loud */
+.finalise-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    #d4af37,
+    rgba(212,175,55,0.4)
+  );
+  border-radius: 8px 0 0 8px;
+}
+
+/* heading — calm authority */
+.finalise-panel h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+  letter-spacing: 0.4px;
+  color: #d4af37;
+}
+
+/* supporting copy */
+.finalise-panel .panel-note {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 16px;
+  max-width: 720px;
+}
+
+/* textarea — feels like a staging canvas */
+#finalise-prompt {
+  width: 100%;
+  min-height: 240px;
+  background-color: #1b1a1a;
+  color: #e6d9a8;
+
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 6px;
+
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  resize: vertical;
+}
+
+/* placeholder tone */
+#finalise-prompt::placeholder {
+  color: rgba(230,217,168,0.45);
+}
+
+/* focus = intentional, not flashy */
+#finalise-prompt:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212,175,55,0.15);
+}
+
+
+
+
+
+
+
+
+/* ---------- Undo Button ---------- */
+
+.undo-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+
+  background: transparent;
+  color: rgba(212,175,55,0.75);
+  border: 1px solid rgba(212,175,55,0.25);
+
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.undo-btn:hover {
+  background-color: rgba(212,175,55,0.08);
+  color: #d4af37;
 }

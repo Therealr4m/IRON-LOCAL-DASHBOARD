@@ -18,4 +18,5 @@ if (!localStorage.getItem(STORAGE_KEY)) {
   };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(initialSites));
+
 }
