@@ -69,11 +69,62 @@ if (finaliseTextarea) {
       });
     });
   });
+
+
+  /* ---------- Undo (Finalise Prompt only) ---------- */
+
+const undoBtn = document.querySelector(".undo-btn");
+let lastFinaliseValue = build.finalisePrompt;
+
+if (finaliseTextarea) {
+  finaliseTextarea.addEventListener("focus", () => {
+    lastFinaliseValue = finaliseTextarea.value;
+  });
+}
+
+if (undoBtn && finaliseTextarea) {
+  undoBtn.addEventListener("click", () => {
+    const currentValue = finaliseTextarea.value;
+    finaliseTextarea.value = lastFinaliseValue;
+    lastFinaliseValue = currentValue;
+
+    build.finalisePrompt = finaliseTextarea.value;
+    saveBuild(build);
+  });
+}
+
 }
 
 
 
+// what allows me to apply the undo button on all prompts.
 
+document.addEventListener("DOMContentLoaded", () => {
+  initSiteBuildPage();
+
+  /* ---------- Undo logic ---------- */
+  const promptBlocks = document.querySelectorAll(".prompt-block");
+
+  promptBlocks.forEach(block => {
+    const textarea = block.querySelector("textarea");
+    const undoBtn = block.querySelector(".undo-btn");
+
+    if (!textarea || !undoBtn) return;
+
+    let lastValue = textarea.value;
+
+    textarea.addEventListener("focus", () => {
+      lastValue = textarea.value;
+    });
+
+    undoBtn.addEventListener("click", () => {
+      const currentValue = textarea.value;
+      textarea.value = lastValue;
+      lastValue = currentValue;
+      textarea.dispatchEvent(new Event("input"));
+    });
+  });
+});
 
 
 /* ---------- Run ---------- */
