@@ -114,59 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-// finalize below
-
-
-
-/* ================= FINAL PROMPT WORKBENCH ================= */
-
-const finalPromptBox = document.getElementById("final-blog-prompt");
-const undoFinalBtn = document.getElementById("undo-final-prompt");
-const copyFinalPromptBtn = document.getElementById("copy-final-blog-prompt");
-
-let lastFinalValue = "";
-
-if (finalPromptBox) {
-  // load
-  const vaultState = JSON.parse(localStorage.getItem("contentVault")) || {};
-  finalPromptBox.value = vaultState.finalPrompt || "";
-
-  // snapshot before edit
-  finalPromptBox.addEventListener("focus", () => {
-    lastFinalValue = finalPromptBox.value;
-  });
-
-  // save
-  finalPromptBox.addEventListener("input", () => {
-    const vault = JSON.parse(localStorage.getItem("contentVault")) || {};
-    vault.finalPrompt = finalPromptBox.value;
-    localStorage.setItem("contentVault", JSON.stringify(vault));
-  });
-}
-
-undoFinalBtn?.addEventListener("click", () => {
-  if (!lastFinalValue) return;
-  const current = finalPromptBox.value;
-  finalPromptBox.value = lastFinalValue;
-  lastFinalValue = current;
-});
-
-copyFinalPromptBtn?.addEventListener("click", () => {
-  navigator.clipboard.writeText(finalPromptBox.value);
-  alert("Final blog prompt copied");
-});
-
-  // Copy prompt
-  document.getElementById("copy-blog-prompt").addEventListener("click", () => {
-    navigator.clipboard.writeText(blogPromptInput.value);
-    alert("Blog prompt copied");
-  });
-});
-
-
-// NEWWWWW CONTENT
-
-// -------- PAGE CONTENT INTEGRATION --------
+// ORANGE LOGIC BELO
 
 const integrationScript = document.getElementById("page-integration-script");
 const integrationLockBtn = document.querySelector(".integration-lock-btn");
@@ -220,3 +168,52 @@ if (copyIntegrationBtn) {
     alert("Integration prompt copied");
   });
 }
+
+// ORANG LOGIC ABOVE
+/* ================= FINAL PROMPT WORKBENCH ================= */
+
+const finalPromptBox = document.getElementById("final-blog-prompt");
+const undoFinalBtn = document.getElementById("undo-final-prompt");
+const copyFinalPromptBtn = document.getElementById("copy-final-blog-prompt");
+
+let lastFinalValue = "";
+
+if (finalPromptBox) {
+  // load
+  const vaultState = JSON.parse(localStorage.getItem("contentVault")) || {};
+  finalPromptBox.value = vaultState.finalPrompt || "";
+
+  // snapshot before edit
+  finalPromptBox.addEventListener("focus", () => {
+    lastFinalValue = finalPromptBox.value;
+  });
+
+  // save
+  finalPromptBox.addEventListener("input", () => {
+    const vault = JSON.parse(localStorage.getItem("contentVault")) || {};
+    vault.finalPrompt = finalPromptBox.value;
+    localStorage.setItem("contentVault", JSON.stringify(vault));
+  });
+}
+
+undoFinalBtn?.addEventListener("click", () => {
+  if (!lastFinalValue) return;
+  const current = finalPromptBox.value;
+  finalPromptBox.value = lastFinalValue;
+  lastFinalValue = current;
+});
+
+copyFinalPromptBtn?.addEventListener("click", () => {
+  navigator.clipboard.writeText(finalPromptBox.value);
+  alert("Final blog prompt copied");
+});
+
+  // Copy prompt
+  document.getElementById("copy-blog-prompt").addEventListener("click", () => {
+    navigator.clipboard.writeText(blogPromptInput.value);
+    alert("Blog prompt copied");
+
+  });
+});
+
+

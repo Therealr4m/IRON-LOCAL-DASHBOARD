@@ -55,6 +55,29 @@ function initSitePage() {
   document.getElementById("site-gsc").textContent = site.gscVerified ? "Yes" : "No";
 
 
+
+// visibility, idk why its going here but ill see xX
+
+
+
+
+
+
+/* ---------- Core Site Info Initial Visibility ---------- */
+
+document.querySelectorAll(".core-row").forEach(row => {
+  const span = row.querySelector("span");
+  const input = row.querySelector("input");
+
+  if (!span || !input) return;
+
+  span.style.display = "inline";
+  input.classList.add("hidden");
+});
+
+
+
+
   /* ---------- Ensure SEO object ---------- */
   site.seo = site.seo || {
     backlinks: "",
@@ -110,6 +133,97 @@ if (impressionsInput) {
     saveSites(sites);
   });
 }
+
+
+
+/* ---------- Site Context NEW HTML AND CSS xX ---------- */
+
+site.context = site.context || {
+  primaryLocation: "",
+  secondaryAreas: "",
+  tone: "",
+  audience: "Homeowners",
+  conversionGoal: "Phone calls"
+};
+
+const primaryLocationInput = document.getElementById("primary-location");
+const secondaryAreasInput = document.getElementById("secondary-areas");
+const audienceInput = document.getElementById("audience");
+const conversionGoalInput = document.getElementById("conversion-goal");
+const toneRadios = document.querySelectorAll('input[name="tone"]');
+
+if (primaryLocationInput) {
+  primaryLocationInput.value = site.context.primaryLocation;
+  primaryLocationInput.addEventListener("input", () => {
+    site.context.primaryLocation = primaryLocationInput.value;
+    saveSites(sites);
+  });
+}
+
+if (secondaryAreasInput) {
+  secondaryAreasInput.value = site.context.secondaryAreas;
+  secondaryAreasInput.addEventListener("input", () => {
+    site.context.secondaryAreas = secondaryAreasInput.value;
+    saveSites(sites);
+  });
+}
+
+if (audienceInput) {
+  audienceInput.value = site.context.audience;
+  audienceInput.addEventListener("input", () => {
+    site.context.audience = audienceInput.value;
+    saveSites(sites);
+  });
+}
+
+if (conversionGoalInput) {
+  conversionGoalInput.value = site.context.conversionGoal;
+  conversionGoalInput.addEventListener("input", () => {
+    site.context.conversionGoal = conversionGoalInput.value;
+    saveSites(sites);
+  });
+}
+
+toneRadios.forEach(radio => {
+  if (radio.value === site.context.tone) radio.checked = true;
+
+  radio.addEventListener("change", () => {
+    site.context.tone = radio.value;
+    saveSites(sites);
+  });
+});
+
+
+
+
+/* ----------HTML CSS  Code Vault ---------- */
+
+site.codeVault = site.codeVault || {
+  html: "",
+  css: ""
+};
+
+const htmlInput = document.getElementById("site-html");
+const cssInput = document.getElementById("site-css");
+
+if (htmlInput) {
+  htmlInput.value = site.codeVault.html;
+
+  htmlInput.addEventListener("input", () => {
+    site.codeVault.html = htmlInput.value;
+    saveSites(sites);
+  });
+}
+
+if (cssInput) {
+  cssInput.value = site.codeVault.css;
+
+  cssInput.addEventListener("input", () => {
+    site.codeVault.css = cssInput.value;
+    saveSites(sites);
+  });
+}
+
 
 
 /* ---------- Monetisation ---------- */
@@ -192,6 +306,8 @@ if (frictionInput) {
     saveSites(sites);
   });
 }
+
+
 
 /* ---------- Citations ---------- */
 
@@ -305,8 +421,63 @@ if (deleteBtn) {
 
 
 
+// new xX
+/* ---------- Core Site Info Edit Toggle ---------- */
+
+const editBtn = document.querySelector(".core-edit-btn");
+if (editBtn) {
+  const rows = document.querySelectorAll(".core-row");
+
+  editBtn.addEventListener("click", () => {
+    const locked = editBtn.classList.contains("locked");
+
+    rows.forEach(row => {
+      const span = row.querySelector("span");
+      const input = row.querySelector("input");
+
+      if (locked) {
+        input.value = span.textContent;
+        span.style.display = "none";
+        input.classList.remove("hidden");
+      } else {
+        span.textContent = input.value;
+        span.style.display = "inline";
+        input.classList.add("hidden");
+      }
+    });
+
+    editBtn.classList.toggle("locked");
+    editBtn.textContent = locked ? "✓ Save" : "✎ Edit";
+  });
+}
 
 
+
+// NEW xX
+/* ---------- Core Site Info Saving ---------- */
+
+const coreMap = [
+  { input: "site-url-input", key: "liveUrl", span: "site-url" },
+  { input: "site-keyword-input", key: "mainKeyword", span: "site-keyword" },
+  { input: "site-phone-input", key: "trackingNumber", span: "site-phone" },
+  { input: "site-gsc-input", key: "gscVerified", span: "site-gsc" }
+];
+
+coreMap.forEach(item => {
+  const input = document.getElementById(item.input);
+  const span = document.getElementById(item.span);
+
+  if (!input || !span) return;
+
+  input.value = site[item.key] || "";
+  span.textContent = site[item.key] || "";
+
+  input.addEventListener("input", () => {
+    site[item.key] = input.value;
+    span.textContent = input.value;
+    saveSites(sites);
+  });
+});
 
 
 
@@ -317,6 +488,35 @@ if (deleteBtn) {
 
 renderMySitesSidebar();
 initSitePage();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -354,3 +554,36 @@ if (addSiteLink) {
     location.href = `site.html?siteId=${id}`;
   });
 }
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lockBtn = document.querySelector(".vault-lock-btn");
+  if (!lockBtn) return;
+
+  const ids = lockBtn.dataset.target.split(",");
+  const fields = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+  // start LOCKED
+  fields.forEach(field => {
+    field.setAttribute("readonly", "true");
+  });
+
+  lockBtn.addEventListener("click", () => {
+    const isLocked = lockBtn.classList.contains("locked");
+
+    fields.forEach(field => {
+      if (isLocked) {
+        field.removeAttribute("readonly");
+      } else {
+        field.setAttribute("readonly", "true");
+      }
+    });
+
+    lockBtn.classList.toggle("locked");
+    lockBtn.classList.toggle("unlocked");
+    lockBtn.textContent = isLocked ? "🔓 Unlocked" : "🔒 Locked";
+  });
+});

@@ -39,27 +39,152 @@
 
 
 
+<!-- new html and css bit xX -->
+
+<section class="lux-panel site-context">
+  <h3>Site Context</h3>
+
+  <div class="context-grid">
+    <div>
+      <label>Primary Location</label>
+      <input id="primary-location" type="text" placeholder="e.g. Enfield" />
+    </div>
+
+    <div>
+      <label>Secondary Areas</label>
+      <input id="secondary-areas" type="text" placeholder="e.g. Barnet, Edmonton" />
+    </div>
+  </div>
+
+  <div class="tone-panel">
+    <label>Website Tone</label>
+
+    <div class="tone-options">
+      <label><input type="radio" name="tone" value="Warm but competent"> Warm but competent</label>
+      <label><input type="radio" name="tone" value="Formal but local"> Formal but slightly local</label>
+      <label><input type="radio" name="tone" value="Direct and confident"> Direct & confident, but trustworthy</label>
+    </div>
+  </div>
+
+  <div class="context-grid">
+    <div>
+      <label>Audience</label>
+      <input id="audience" type="text" value="Homeowners" />
+    </div>
+
+    <div>
+      <label>Conversion Goal</label>
+      <input id="conversion-goal" type="text" value="Phone calls" />
+    </div>
+  </div>
+</section>
 
 
 
 
 
-      
+
+
+
+
+<!-- ================= CORE SITE INFO ================= -->
+<section class="core-info-panel">
+  <div class="core-info-header">
+    <h3>Core Site Info</h3>
+
+    <button
+      type="button"
+      class="core-edit-btn locked"
+    >
+      ✎ Edit
+    </button>
+  </div>
+
+  <div class="core-row">
+    <label>Live URL</label>
+    <span id="site-url"></span>
+    <input id="site-url-input" type="text" class="hidden">
+  </div>
+
+  <div class="core-row">
+    <label>Main Keyword</label>
+    <span id="site-keyword"></span>
+    <input id="site-keyword-input" type="text" class="hidden">
+  </div>
+
+  <div class="core-row">
+    <label>Tracking Number</label>
+    <span id="site-phone"></span>
+    <input id="site-phone-input" type="text" class="hidden">
+  </div>
+
+  <div class="core-row">
+    <label>GSC Verified</label>
+    <span id="site-gsc"></span>
+    <input id="site-gsc-input" type="text" class="hidden">
+  </div>
+</section>
 
 
 
 
 
 
-      <!-- ================= CORE SITE INFO ================= -->
-      <section>
-        <h3>Core Site Info</h3>
-        <p><strong>Live URL:</strong> <span id="site-url"></span></p>
-        <p><strong>Main Keyword:</strong> <span id="site-keyword"></span></p>
-        <p><strong>Tracking Number:</strong> <span id="site-phone"></span></p>
-        <p><strong>GSC Verified:</strong> <span id="site-gsc"></span></p>
-      </section>
 
+
+
+
+
+
+<!-- new css and html xX -->
+
+<section class="lux-panel code-vault">
+  <h3>HTML & CSS Vault</h3>
+
+
+
+
+<button
+  type="button"
+  class="vault-lock-btn locked"
+  data-target="site-html,site-css"
+>
+  🔒 Locked
+</button>
+
+
+
+
+
+
+
+  <p class="panel-note">
+    Core homepage code. Used to preserve tone, layout, and design consistency.
+    Protected against accidental deletion.
+  </p>
+
+  <div class="vault-grid">
+    <div class="vault-block">
+      <label>Homepage HTML</label>
+      <textarea
+        id="site-html"
+        rows="18"
+        spellcheck="false"
+        onkeydown="return confirmEdit(event)"
+      ></textarea>
+    </div>
+
+    <div class="vault-block">
+      <label>Homepage CSS</label>
+      <textarea
+        id="site-css"
+        rows="18"
+        spellcheck="false"
+        onkeydown="return confirmEdit(event)"
+      ></textarea>
+    </div>
+  </div>
+</section>
 
 
 
