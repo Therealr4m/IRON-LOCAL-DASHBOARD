@@ -109,14 +109,41 @@ OUTPUT:
 
 </div>
 
-     <!-- r4m here below -->
+    
       <!-- BLOG WRITER PROMPT -->
       <div class="vault-group prompt-vault">
-        <h4>Global Blog Writer Prompt x25</h4>
+        <h4>Master Blog Creation Section</h4>
+
+
+<div class="vault-group blog-mixer-vault">
+
+  <div class="blog-mixer-header">
+    <h4>🧩 Blog Mixer</h4>
+    <span class="mixer-badge">After Blog Compiler</span>
+  </div>
+
+  <p class="vault-note">
+   Use this to make CHATGPT compile the blog into one full html file you can directly copy and paste without losing sections.
+  </p>
+
+  <textarea
+    id="blog-mixer-box"
+    class="vault-textarea blog-mixer-textarea"
+    rows="18"
+    placeholder="Paste your Blog Mixer prompt + ChatGPT blog output here..."
+  ></textarea>
+
+  <div class="vault-actions mixer-actions">
+    <button id="undo-blog-mixer">↺ Undo</button>
+    <button id="copy-blog-mixer">Copy Mixer</button>
+  </div>
+
+</div>
+
 
 <!-- FINAL PROMPT WORKBENCH -->
 <div class="vault-group final-vault">
-  <h4>Final Blog Prompt Workbench</h4>
+  <h4>Create a Blog For Any Website</h4>
 
   <p class="vault-note">
     Paste your master blog prompt here, inject keyword + HTML + CSS, and polish

@@ -1848,3 +1848,578 @@ content-vault-section {
 .integration-actions button:hover {
   background: #ffd27a;
 }
+
+/* ===============================
+
+   BLOG MIXER — AFTER STAGE
+
+================================ */
+
+
+
+.blog-mixer-vault {
+
+  background: linear-gradient(160deg, #faa300e6, #ffb733e6);
+
+  border: 1px solid rgba(0,0,0,0.25);
+
+  box-shadow:
+
+    0 14px 30px rgba(0,0,0,0.45),
+
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  margin-bottom: 36px;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+
+
+/* subtle animated energy line */
+
+.blog-mixer-vault::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -40%;
+
+  width: 60%;
+
+  height: 100%;
+
+  background: linear-gradient(
+
+    120deg,
+
+    transparent,
+
+    rgba(255,255,255,0.25),
+
+    transparent
+
+  );
+
+  animation: mixerSweep 6s infinite linear;
+
+}
+
+
+
+@keyframes mixerSweep {
+
+  from { left: -60%; }
+
+  to { left: 120%; }
+
+}
+
+
+
+.blog-mixer-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+
+.blog-mixer-header h4 {
+
+  color: #000;
+
+  font-weight: 700;
+
+}
+
+
+
+.mixer-badge {
+
+  background: rgba(0,0,0,0.25);
+
+  color: #000;
+
+  padding: 4px 12px;
+
+  border-radius: 14px;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.5px;
+
+  font-weight: 600;
+
+}
+
+
+
+.blog-mixer-vault .vault-note {
+
+  color: #000;
+
+  opacity: 0.85;
+
+}
+
+
+
+.blog-mixer-textarea {
+
+  background: rgba(0,0,0,0.35);
+
+  color: #000;
+
+  border: 1px solid rgba(0,0,0,0.35);
+
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+
+}
+
+
+
+.blog-mixer-textarea::placeholder {
+
+  color: rgba(0,0,0,0.55);
+
+}
+
+
+
+.blog-mixer-vault .vault-actions button {
+
+  background: rgba(0,0,0,0.75);
+
+  color: #faa300e6;
+
+  border: 1px solid rgba(0,0,0,0.6);
+
+}
+
+
+.blog-mixer-vault .vault-actions button:hover {
+
+  background: rgba(0,0,0,0.9);
+
+  color: #ffd27a;
+
+}
+
+
+
+/* ===============================
+   CITATIONS – MODERN RED UI
+================================ */
+
+#citations {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* Card */
+.outreach-card {
+  background: linear-gradient(180deg, #bca9ff, #3643ff);
+  border: 1px solid rgba(255, 13, 13, 0.774);
+  border-left: 5px solid #ff3b3b;
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 25px rgba(116, 141, 5, 0.45);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.outreach-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.6);
+}
+
+/* Title */
+.outreach-card strong {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+  letter-spacing: .4px;
+  color: #000000;
+}
+
+/* Status select */
+.outreach-card select {
+  background: #0000001f;
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  color: #000000;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Notes */
+.outreach-card textarea {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  border-radius: 6px;
+  padding: 8px;
+  resize: vertical;
+  min-height: 60px;
+  color: #000000;
+}
+
+/* Remove button */
+.outreach-card button {
+  background: rgba(255, 60, 60, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.6);
+  color: #ffbdbd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s ease, transform .1s ease;
+}
+
+.outreach-card button:hover {
+  background: rgba(255, 60, 60, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Inputs above */
+.operator-form input,
+.operator-form button {
+  border: 1px solid rgba(255, 80, 80, 0.4);
+}
+
+#add-citation {
+  background: rgba(255, 60, 60, 0.2);
+  color: #ffdada;
+  border-radius: 6px;
+}
+
+#add-citation:hover {
+  background: rgba(255, 60, 60, 0.4);
+}
+/* ======================================================
+   SITE BUILD Section design — ULTRA BLUE OPERATOR THEME
+====================================================== */
+
+.site-build-section {
+  background: radial-gradient(circle at top, #071a2f, #020b16 70%);
+  border: 1px solid rgba(90,180,255,0.25);
+  border-radius: 10px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(120,200,255,0.05);
+}
+
+/* ---------- HEADER ---------- */
+
+.site-build-section .vault-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(120,200,255,0.25);
+}
+
+.site-build-section h3 {
+  color: #8fd0ff;
+  letter-spacing: 0.6px;
+}
+
+.site-build-section .vault-edit-btn {
+  background: rgba(120,200,255,0.15);
+  border: 1px solid rgba(120,200,255,0.4);
+  color: #cfeaff;
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.site-build-section .vault-edit-btn:hover {
+  background: rgba(120,200,255,0.3);
+}
+
+/* ---------- GROUP PANELS ---------- */
+
+.site-build-section .vault-group {
+  background: rgba(10,25,45,0.55);
+  border: 1px solid rgba(120,200,255,0.22);
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 26px;
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ---------- TITLES ---------- */
+
+.site-build-section h4 {
+  color: #7fc7ff;
+  margin-bottom: 16px;
+  letter-spacing: 0.4px;
+}
+
+.site-build-section h5 {
+  color: #a9dcff;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+/* ---------- INPUT GRID ---------- */
+
+.build-inputs .operator-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.site-build-section input {
+  background: rgba(5,20,40,0.75);
+  color: #e6f5ff;
+  border: 1px solid rgba(120,200,255,0.35);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.site-build-section input::placeholder {
+  color: rgba(200,235,255,0.5);
+}
+
+.site-build-section input:focus {
+  outline: none;
+  border-color: #6fc3ff;
+  box-shadow: 0 0 0 1px rgba(120,200,255,0.35);
+}
+
+/* ---------- TEMPLATE LAYOUT ---------- */
+
+.template-card {
+  background: linear-gradient(180deg, rgba(8,30,60,0.65), rgba(4,18,36,0.65));
+  border: 1px solid rgba(120,200,255,0.25);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.template-panel label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  letter-spacing: 0.6px;
+  color: #9fd7ff;
+}
+
+/* ---------- TEXTAREAS ---------- */
+
+.site-build-section .vault-textarea {
+  background: rgba(3,15,32,0.8);
+  color: #e9f7ff;
+  border: 1px solid rgba(120,200,255,0.3);
+  border-radius: 8px;
+  padding: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.site-build-section .vault-textarea:focus {
+  outline: none;
+  border-color: #7fd0ff;
+  box-shadow: 0 0 0 1px rgba(120,200,255,0.4);
+}
+
+/* ---------- ACTIONS ---------- */
+
+.site-build-section .vault-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.site-build-section .vault-actions button {
+  background: linear-gradient(180deg, #4fb3ff, #1e6fb3);
+  color: #031321;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+}
+
+.site-build-section .vault-actions button:hover {
+  background: linear-gradient(180deg, #72c7ff, #2b86d4);
+  transform: translateY(-1px);
+}
+
+/* ---------- SUBTLE GLOW ---------- */
+
+.site-build-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 12px;
+  box-shadow: inset 0 0 40px rgba(90,170,255,0.05);
+}
+
+
+/* locked css theme for site build page */
+.vault-group.locked {
+  opacity: 0.75;
+  filter: grayscale(0.2);
+}
+
+.vault-group.locked textarea {
+  background: rgba(5,20,40,0.4);
+  border-color: rgba(120,200,255,0.15);
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   MASTER PAGE PROMPTS — ULTRA BLUE
+================================ */
+
+.master-page-prompts {
+  background: linear-gradient(180deg, rgba(30,70,160,.35), rgba(10,25,60,.55));
+  border: 1px solid rgba(120,180,255,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,.55);
+}
+
+.master-prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.master-prompt-card {
+  background: linear-gradient(180deg, rgba(40,90,200,.25), rgba(12,22,48,.8));
+  border: 1px solid rgba(120,180,255,0.45);
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 12px 26px rgba(0,0,0,.6);
+}
+
+.master-prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .8rem;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: #bcdcff;
+  margin-bottom: 8px;
+}
+
+.master-prompt-textarea {
+  background: rgba(8,18,40,.85);
+  color: #e7f2ff;
+  border: 1px solid rgba(120,180,255,.35);
+  border-radius: 10px;
+  min-height: 160px;
+}
+
+.master-prompt-textarea:focus {
+  outline: none;
+  border-color: #4db3ff;
+  box-shadow: 0 0 0 1px rgba(77,179,255,.4);
+}
+
+.master-prompt-card .vault-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.master-prompt-card .vault-actions button {
+  background: linear-gradient(180deg,#2b79ff,#1451c4);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: .7rem;
+  cursor: pointer;
+}
+
+.master-prompt-card .vault-actions button:hover {
+  background: linear-gradient(180deg,#4aa1ff,#1a63d6);
+}
+
+
+
+
+
+.operator-sidebar {
+  background: linear-gradient(180deg,#06122e,#020816);
+  border-right: 1px solid rgba(90,160,255,.25);
+  box-shadow: inset -1px 0 0 rgba(255,255,255,.04);
+}
+
+.operator-logo {
+  padding: 20px;
+  font-weight: 700;
+  color: #7cc2ff;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(120,180,255,.15);
+}
+
+.operator-sidebar .primary-nav li a {
+  display: block;
+  padding: 12px 18px;
+  color: #cfe7ff;
+  text-decoration: none;
+  font-size: .8rem;
+}
+
+.operator-sidebar .primary-nav li a:hover {
+  background: rgba(60,120,255,.15);
+  color: #fff;
+}
+
+.operator-sidebar .primary-nav .active a {
+  background: linear-gradient(90deg,#2f7dff,#0f3c9c);
+  color: #fff;
+}
+
+.operator-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: .65rem;
+  color: #6fa8ff;
+  opacity: .7;
+}

@@ -2,234 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Iron Local — Site Build</title>
+  <title>Site Build Workbench</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <!-- ================= PAGE HEADER ================= -->
-  <div class="h1-head">
-    <h1>Site Build</h1>
-    <p class="system-tagline">
-      Pre-flight validation and repeatable generation system
-    </p>
+<div class="dashboard-layout">
+
+ <aside class="sidebar operator-sidebar">
+
+  <div class="operator-logo">
+    🟦 Build Mode
   </div>
 
-  <div class="app-shell">
+  <nav class="sidebar-navigation">
+    <ul class="primary-nav">
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="site.html">My Sites</a></li>
+      <li><a href="content-vault.html">Vault</a></li>
+      <li class="active"><a href="#">Site Builder</a></li>
+    </ul>
+  </nav>
 
-    <!-- ================= SIDEBAR ================= -->
-    <nav class="sidebar-navigation">
-      <ul class="primary-nav">
-        <li><a href="index.html">← Back to Overview</a></li>
-        <li><a href="site.html">My Sites</a></li>
-        <li><a href="contractors.html">Contractors</a></li>
-        <li><a href="content-vault.html">Content Vault</a></li>
-      </ul>
-    </nav>
+  <div class="operator-footer">
+    R4m
+  </div>
 
-    <!-- ================= MAIN CONTENT ================= -->
+</aside>
+
+
+
+
+
+
+
+  <div class="app-wrapper">
     <main class="main-content">
 
-      <!-- ================= PRE-GENERATION CONFIRMATION ================= -->
-      <section>
-        <h3>Before Generating This Site, Confirm:</h3>
-
-        <ul class="validation-list">
-          <li>You MUST INSERT in the top line of Homepage HTML the colour theme you want & ENSURE the service and location page match</li>
-          <li>Competitor lacks specificity or trust signals</li>
-          <li>Target niche and location are validated</li>
-          <li>Tracking number is ready</li>
-          <li>GSC property is planned</li>
-        </ul>
-
-        <p class="panel-note">
-          If any item is uncertain, stop and resolve it before generating.
-        </p>
-      </section>
-
-      <!-- ================= VARIABLE SANITY SNAPSHOT ================= -->
-      <section>
-        <h3>Variable Sanity Snapshot</h3>
-
-        <p class="panel-note">
-          Double-check before pasting into ChatGPT:
-        </p>
-
-        <ul class="validation-list">
-          <li><strong>BUSINESS_NAME</strong> matches domain exactly</li>
-          <li><strong>PRIMARY_KEYWORD</strong> includes location</li>
-          <li><strong>PHONE_NUMBER</strong> matches tracking provider</li>
-          <li><strong>LOCATION</strong> spelling matches Google Maps</li>
-          <li><strong>SURROUNDING_AREAS</strong> are real and relevant</li>
-        </ul>
-      </section>
 
 
+<section class="site-build-section">
 
-
-
-
-<!-- ================= FINALISE PROMPT ================= -->
-<section class="finalise-panel">
-  <h3>Finalise Prompt b4 Sending</h3>
-
-  <p class="panel-note">
-    Paste your selected master prompt here and inject final variables
-    (business name, niche, location, tone) before sending to ChatGPT.
-  </p>
-
-  <textarea
-    id="finalise-prompt"
-    rows="14"
-    placeholder="Paste final prompt here and polish before sending…"
-  ></textarea>
-<button type="button" class="undo-btn">↺ Undo last change</button>
-</section>
-
-
-
-
-      <!-- ================= MASTER PROMPT SYSTEMS ================= -->
-      <section>
-        <h3>Website Builder — Master Prompt Systems</h3>
-
-        <p class="panel-note">
-          Nine independent prompt systems. Each contains page-specific variants.
-        </p>
-
-        <!-- ===== MASTER PROMPT SYSTEMS 1–9 ===== -->
-        <!-- Repeatable, isolated, intentional -->
-
-        <!-- SYSTEM TEMPLATE -->
-        <!-- Copy structure, no logic -->
-
-        <!-- SYSTEM 1 -->
-        <div class="prompt-set">
-          <h4>Master Prompt System 1</h4>
-
-          <div class="prompt-block">
-            <label>Home Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Services Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Location Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-
-          </div>
-        </div>
-
-        <!-- SYSTEM 2 -->
-        <div class="prompt-set">
-          <h4>Master Prompt System 2</h4>
-
-          <div class="prompt-block">
-            <label>Home Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Services Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Location Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-        </div>
-
-        <!-- SYSTEM 3 -->
-        <div class="prompt-set">
-          <h4>Master Prompt System 3</h4>
-
-          <div class="prompt-block">
-            <label>Home Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Services Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Location Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-        </div>
-
-        <!-- SYSTEM 4 -->
-        <div class="prompt-set">
-          <h4>Master Prompt System 4</h4>
-
-          <div class="prompt-block">
-            <label>Home Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Services Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Location Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-        </div>
-
-        <!-- SYSTEM 5 -->
-        <div class="prompt-set">
-          <h4>Master Prompt System 5</h4>
-
-          <div class="prompt-block">
-            <label>Home Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Services Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-
-          <div class="prompt-block">
-            <label>Location Page Prompt</label>
-            <textarea rows="14"></textarea>
-            <button type="button" class="undo-btn">↺ Undo last change</button>
-          </div>
-        </div>
-
-        
-
-
-      </section>
-
-    </main>
+  <div class="vault-header">
+    <h3>🟦 Site Build Workbench</h3>
+    <span class="integration-badge">Operator Mode</span>
   </div>
 
-<script src="site-build.js"></script>
+  <p class="vault-note">
+    Use this to manually build pages using your proven templates.
+    Paste your template code, inject your inputs, lock sections, and send clean prompts to ChatGPT.
+  </p>
+
+  <!-- INPUT REMINDER -->
+  <div class="vault-group build-reminder">
+    <h4>⚡ Required Inputs</h4>
+    <ul class="vault-list">
+      <li>Target Keyword</li>
+      <li>Niche</li>
+      <li>Location</li>
+      <li>Primary Colour</li>
+      <li>Phone Number</li>
+      <li>CTA Tone</li>
+    </ul>
+  </div>
+
+
+
+ <!-- PROMPT TERMINAL -->
+  <div class="vault-group">
+
+    <div class="page-integration-header">
+      <h4>🚀 Page Build Prompt</h4>
+      <button class="integration-lock-btn" data-lock="prompt">🔒 Lock</button>
+    </div>
+
+    <p class="vault-note">
+      Paste your page build prompt here and manually inject your inputs above before sending to ChatGPT.
+    </p>
+
+    <textarea class="vault-textarea" rows="14"
+      placeholder="You are my site builder. Build a homepage using this template. Match tone, layout, colours, CTA flow and niche language..."></textarea>
+
+    <div class="vault-actions">
+      <button>↺ Undo</button>
+      <button>Copy Prompt</button>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+<!-- ================= MASTER PAGE PROMPTS ================= -->
+<div class="vault-group master-page-prompts">
+
+  <div class="page-integration-header">
+    <h4>🧠 Master Page Prompts</h4>
+    <span class="integration-badge">Per-Page Control</span>
+  </div>
+
+  <p class="vault-note">
+    Store your core build prompts for each page type. These control how ChatGPT generates each page using your templates and inputs.
+  </p>
+
+  <div class="master-prompt-grid">
+
+    <!-- HOME -->
+    <div class="master-prompt-card">
+      <div class="master-prompt-header">
+        <span>Homepage Prompt</span>
+        <button class="integration-lock-btn" data-lock="homePrompt">🔒 Lock</button>
+      </div>
+
+      <textarea
+        class="vault-textarea master-prompt-textarea"
+        rows="9"
+        placeholder="You are my site builder. Build a homepage using this template. Match tone, layout, colours, CTA flow, niche language and conversion structure..."
+      ></textarea>
+
+      <div class="vault-actions">
+        <button>↺ Undo</button>
+        <button>Copy</button>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="master-prompt-card">
+      <div class="master-prompt-header">
+        <span>Services Page Prompt</span>
+        <button class="integration-lock-btn" data-lock="servicesPrompt">🔒 Lock</button>
+      </div>
+
+      <textarea
+        class="vault-textarea master-prompt-textarea"
+        rows="9"
+        placeholder="Build a services page using my template. Preserve layout, headings logic, internal linking, CTA spacing and SEO structure..."
+      ></textarea>
+
+      <div class="vault-actions">
+        <button>↺ Undo</button>
+        <button>Copy</button>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="master-prompt-card">
+      <div class="master-prompt-header">
+        <span>Contact Page Prompt</span>
+        <button class="integration-lock-btn" data-lock="contactPrompt">🔒 Lock</button>
+      </div>
+
+      <textarea
+        class="vault-textarea master-prompt-textarea"
+        rows="9"
+        placeholder="Build a contact page using my style. Use conversion flow, trust elements, form layout, CTA tone and visual spacing from the template..."
+      ></textarea>
+
+      <div class="vault-actions">
+        <button>↺ Undo</button>
+        <button>Copy</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- TEMPLATE 1 -->
+  <div class="vault-group template-card">
+
+    <div class="page-integration-header">
+      <h4>Template 1 — Home / Services / Contact</h4>
+      <button class="integration-lock-btn" data-lock="tpl1">🔒 Lock</button>
+    </div>
+
+    <div class="template-grid">
+
+      <div class="template-panel">
+        <label>Homepage Template</label>
+        <textarea class="vault-textarea" rows="10"></textarea>
+      </div>
+
+      <div class="template-panel">
+        <label>Services Template</label>
+        <textarea class="vault-textarea" rows="10"></textarea>
+      </div>
+
+      <div class="template-panel">
+        <label>Contact Template</label>
+        <textarea class="vault-textarea" rows="10"></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TEMPLATE 2 -->
+  <div class="vault-group template-card">
+
+    <div class="page-integration-header">
+      <h4>Template 2 — Home / Services</h4>
+      <button class="integration-lock-btn" data-lock="tpl2">🔒 Lock</button>
+    </div>
+
+    <div class="template-grid">
+
+      <div class="template-panel">
+        <label>Homepage Template</label>
+        <textarea class="vault-textarea" rows="10"></textarea>
+      </div>
+
+      <div class="template-panel">
+        <label>Services Template</label>
+        <textarea class="vault-textarea" rows="10"></textarea>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+  </div>
+
+</div>
+
+
+  <script src="site-build.js"></script>
 
 </body>
 </html>
-

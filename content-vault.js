@@ -113,6 +113,45 @@ document.addEventListener("DOMContentLoaded", () => {
       list.appendChild(li);
     });
   });
+// blog mixer below
+
+const blogMixerBox = document.getElementById("blog-mixer-box");
+const undoBlogMixer = document.getElementById("undo-blog-mixer");
+const copyBlogMixer = document.getElementById("copy-blog-mixer");
+
+let blogMixerHistory = [];
+
+// Load
+if (blogMixerBox) {
+  blogMixerBox.value = localStorage.getItem("blogMixerBox") || "";
+
+  // Track history + save
+  blogMixerBox.addEventListener("input", () => {
+    blogMixerHistory.push(blogMixerBox.value);
+    localStorage.setItem("blogMixerBox", blogMixerBox.value);
+  });
+
+  // Undo
+  undoBlogMixer.addEventListener("click", () => {
+    if (blogMixerHistory.length > 1) {
+      blogMixerHistory.pop();
+      blogMixerBox.value = blogMixerHistory[blogMixerHistory.length - 1];
+      localStorage.setItem("blogMixerBox", blogMixerBox.value);
+    }
+  });
+
+  // Copy
+  copyBlogMixer.addEventListener("click", () => {
+    navigator.clipboard.writeText(blogMixerBox.value);
+
+    copyBlogMixer.innerText = "Copied ✓";
+    setTimeout(() => {
+      copyBlogMixer.innerText = "Copy Mixer";
+    }, 1200);
+  });
+}
+
+  // blog mixer above
 
 // ORANGE LOGIC BELO
 

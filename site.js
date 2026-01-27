@@ -395,6 +395,15 @@ if (addCitationBtn) {
 
 renderCitations();
 
+
+
+
+
+
+
+
+
+
 /* ---------- Delete Site section ---------- */
 
 const deleteBtn = document.getElementById("delete-site-btn");

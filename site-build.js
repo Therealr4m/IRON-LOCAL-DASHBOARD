@@ -1,138 +1,83 @@
-/* ======================================================
-   SITE BUILD ENGINE
-   LocalStorage only — isolated
-====================================================== */
+document.addEventListener("DOMContentLoaded", () => {
 
-const BUILD_STORAGE_KEY = "ironlocal-site-build";
+  // ==============================
+  // HISTORY STACK (REAL UNDO)
+  // ==============================
+  const historyMap = new WeakMap();
 
-/* ---------- Load / Save ---------- */
+  document.querySelectorAll("textarea").forEach(area => {
+    historyMap.set(area, [area.value]);
 
-function loadBuild() {
-  return JSON.parse(localStorage.getItem(BUILD_STORAGE_KEY)) || {};
-}
+    area.addEventListener("input", () => {
+      const stack = historyMap.get(area);
+      stack.push(area.value);
 
-function saveBuild(build) {
-  localStorage.setItem(BUILD_STORAGE_KEY, JSON.stringify(build));
-}
-
-/* ---------- Init ---------- */
-
-function initSiteBuildPage() {
-  const build = loadBuild();
-
-
-
-
-
-
-
-/* ---------- Finalise Prompt ---------- */
-
-build.finalisePrompt = build.finalisePrompt || "";
-
-const finaliseTextarea = document.getElementById("finalise-prompt");
-
-if (finaliseTextarea) {
-  /* LOAD */
-  finaliseTextarea.value = build.finalisePrompt;
-
-  /* SAVE */
-  finaliseTextarea.addEventListener("input", () => {
-    build.finalisePrompt = finaliseTextarea.value;
-    saveBuild(build);
+      if (stack.length > 50) stack.shift();
+    });
   });
-}
 
 
+  // ==============================
+  // LOCK SYSTEM
+  // ==============================
+  document.querySelectorAll(".integration-lock-btn").forEach(btn => {
 
-  /* ensure root container */
-  build.prompts = build.prompts || [];
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".vault-group, .master-prompt-card, .template-card");
+      const textareas = card.querySelectorAll("textarea");
 
-  const promptSets = document.querySelectorAll(".prompt-set");
+      const locked = btn.classList.toggle("locked");
 
-  promptSets.forEach((set, systemIndex) => {
-    /* ensure system bucket */
-    build.prompts[systemIndex] =
-      build.prompts[systemIndex] || ["", "", ""];
+      textareas.forEach(area => {
+        area.readOnly = locked;
+        area.classList.toggle("locked-field", locked);
+      });
 
-    const textareas = set.querySelectorAll("textarea");
+      btn.textContent = locked ? "🔓 Unlock" : "🔒 Lock";
+      card.classList.toggle("locked-card", locked);
+    });
 
-    textareas.forEach((textarea, promptIndex) => {
-      /* LOAD */
-      textarea.value =
-        build.prompts[systemIndex][promptIndex];
+  });
 
-      /* SAVE — identical philosophy to site.js */
-      textarea.addEventListener("input", () => {
-        build.prompts[systemIndex][promptIndex] = textarea.value;
-        saveBuild(build);
+
+  // ==============================
+  // UNDO BUTTONS
+  // ==============================
+  document.querySelectorAll(".vault-actions button:first-child").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".vault-group, .master-prompt-card, .template-card");
+
+      card.querySelectorAll("textarea").forEach(area => {
+        if (area.readOnly) return;
+
+        const stack = historyMap.get(area);
+
+        if (stack && stack.length > 1) {
+          stack.pop();
+          area.value = stack[stack.length - 1];
+        }
       });
     });
   });
 
 
-  /* ---------- Undo (Finalise Prompt only) ---------- */
+  // ==============================
+  // COPY BUTTONS
+  // ==============================
+  document.querySelectorAll(".vault-actions button:last-child").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".vault-group, .master-prompt-card, .template-card");
+      let combined = "";
 
-const undoBtn = document.querySelector(".undo-btn");
-let lastFinaliseValue = build.finalisePrompt;
+      card.querySelectorAll("textarea").forEach(area => {
+        combined += area.value + "\n\n";
+      });
 
-if (finaliseTextarea) {
-  finaliseTextarea.addEventListener("focus", () => {
-    lastFinaliseValue = finaliseTextarea.value;
-  });
-}
+      navigator.clipboard.writeText(combined.trim());
 
-if (undoBtn && finaliseTextarea) {
-  undoBtn.addEventListener("click", () => {
-    const currentValue = finaliseTextarea.value;
-    finaliseTextarea.value = lastFinaliseValue;
-    lastFinaliseValue = currentValue;
-
-    build.finalisePrompt = finaliseTextarea.value;
-    saveBuild(build);
-  });
-}
-
-}
-
-
-
-// what allows me to apply the undo button on all prompts.
-
-document.addEventListener("DOMContentLoaded", () => {
-  initSiteBuildPage();
-
-  /* ---------- Undo logic ---------- */
-  const promptBlocks = document.querySelectorAll(".prompt-block");
-
-  promptBlocks.forEach(block => {
-    const textarea = block.querySelector("textarea");
-    const undoBtn = block.querySelector(".undo-btn");
-
-    if (!textarea || !undoBtn) return;
-
-    let lastValue = textarea.value;
-
-    textarea.addEventListener("focus", () => {
-      lastValue = textarea.value;
-    });
-
-    undoBtn.addEventListener("click", () => {
-      const currentValue = textarea.value;
-      textarea.value = lastValue;
-      lastValue = currentValue;
-      textarea.dispatchEvent(new Event("input"));
+      btn.textContent = "✓ Copied";
+      setTimeout(() => btn.textContent = "Copy", 1200);
     });
   });
+
 });
-
-
-/* ---------- Run ---------- */
-
-document.addEventListener("DOMContentLoaded", initSiteBuildPage);
-
-
-
-
-
-
